@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--js-day01-->
+
+<!--
+
+test1：js 注释和三种书写方式
+        /*
+        * js 代码书写的三种方式（一个页面可以有多个script标签，从上往下执行）：
+        *   1、内嵌式
+        *       可以放在网页中的任意位置
+        *       只能用于当前网页 学习阶段这样写
+        *   2、外链式
+        *       创建一个以 .js结尾的文件，使用script标签中的src属性引入
+        *       可以使用于多个网页，开发时这样写
+        *   3、行内式——少用
+        *       对代码量有局限性，代码很厚重，不简洁
+        *   注意：
+        *       外链式和内嵌式同时存在时（内嵌式写在外链标签内），只会执行外链式
+        *       严格区分大小写
+        * */
+
+        // js 注释：
+            // 单行注释 CTRL+/
+        /*
+        * 多行注释
+        * CTRL+shift+/
+        * */
+
+test2：输入输出
+    1、alert(0) 弹框
+    2、prompt(123) 弹框
+        比 alert 多了一个用户输入框，多了一个取消按钮
+        与 alert 都可以阻塞代码的执行
+    3、console.log(456) 控制台输出
+        用户体验好，不会阻塞代码的执行
+        区分大小写
+        可以输出多个值，值与值之间用逗号隔开
+
+test3：变量
+    语法：var 变量名 = 值;
+    三种写法：
+        1、创建变量时直接给值
+            var num = 1;
+        2、先创建变量，后给值
+            var num; // 创建一个num的变量
+            num = 1; // 把 1 给 num 这个变量
+        3、一次可以创建多个变量，变量之间用逗号隔开
+            var hw1=1, hw2=2, ... numN=N;
+     变量命名规范：
+        1、不能以数字开头
+        2、特殊符号只能使用下划线_ 和美元符号 $
+        3、不能使用关键字和保留字
+        4、要有语义，不能使用中文，拼音在特殊情况下使用
+        5、建议使用驼峰命名法
+
+-->
+
+<!-- js-day02 -->
+
+<!--
+
+test1：
+    变量类型：
+        五种基本类型：string、number、boolean、null、undefined
+        一种复杂类型：object
+        字符串string：单引号或者双引号 '' ""
+        数值型number：小数、整数、正负数、NaN:非数字
+        布尔值boolean：true、false
+        未定义undefined：一般报错情况下出现未定义
+        null：一般报错情况下会出现
+            注意：typeof判断类型时，返回值是object，这是js的一个bug
+
+    判断数据类型：typeof
+        typeof 数据
+        typeof(数据)
+
+test2：
+    类型转换：
+        转数值型
+            Number(数据)
+                只能转换纯数字
+            parseInt(数据)
+                不能转小数，也不会四舍五入，只会取小数点前面的数
+                只能转换部分数字（以数字开头）
+            parseFloat(数据)
+                只能转换部分数字（以数字开头）
+
+        转字符串
+            String(数值)
+            数值.toString   不用，因为null、undefined调用时会报错，解析不了
+
+         转Boolean类型
+            Boolean(数值)
+            为假的六种情况
+                false、0、null、undefined、空字符串、NaN
+
+test3：运算符
+    运算符优先级：
+        1、() 括号优先级最高
+        2、一元运算符 ++ -- !
+        3、算数运算符 先 * / % 后+ -
+        4、关系运算符 > >= < <=
+            比较运算符的结果只有两种情况：true、false
+        5、相等运算符 == != === !==
+        6、逻辑运算符 先 && 后 ||
+            && 一假则假
+            || 一真则真
+        7、赋值运算符 =
+    加号隐式转换：字符相连，数值相加 +"100" 相当于Number("100")
+
+test4：分支结构
+    if 三种写法
+        if () {}
+        if() {} else {}
+        if() {} else if() {} else if() {} ... else {}
+    switch case
+        switch(固定值) {
+            case 数值1:
+                执行代码
+                break;
+            case 数值2:
+                执行代码
+                break;
+            default:
+                执行代码
+                break;
+        }
+
+        如果不写break，会出现 case 穿透
+
+test5：for 循环
+    三要素：起点、范围、计数
+        要做的事情
+    for(起点; 范围; 计数) {
+        执行代码
+    }
+
+-->
+
+<!-- js-day03-->
+
+<!--
+
+
+test1：while循环
+    起点在while循环外面
+    范围在while循环括号里面
+    计数写在while循环内容里面
+        起点;
+        while(范围) {
+            执行代码
+            计数;
+        }
+
+test2：do while 循环
+    怎么样都会执行一次里面的代码
+
+    起点写在循环外面
+    计数写在循环里面
+    范围写在while的括号里面
+        起点;
+        do{
+            执行代码
+            计数;
+        } while(范围)
+
+test3：循环打印三角形案例
+
+test4：break、continue案例
+    break：结束整个循环
+        只能在switch和循环中使用
+    continue：跳过本次循环，执行下一次循环
+
+test5：九九乘法表
+test6：死循环
+    for(;;) {}
+    while(true) {}
+test7：数组：评委打分案例
+    var arr = [值1, 值2, ...];
+    var arr = new Array(长度);
+test8：数组：求最大值、最小值、平均值
+
+-->
+
+<!-- js-day04 -->
+
+<!--
+
+
+test1：Date对象
+    var date = new Date();
+    var yy = date.getFullYear();        // 年
+    var mm = date.getMonth() + 1; // 月
+    var dd = date.getDate();            // 日
+    var hh = date.getHours();          // 小时
+    var MM = date.getMinutes();    // 分钟
+    var ss = date.getSeconds();        // 秒数
+    var time = date.getTime();         // 时间原点(1970年1月1日)到现在的毫秒值
+
+    var date = new Date(毫秒值); // 创建在该毫秒值时的时间对象
+    var date = new Date("1997-1-1 8:0:0") // 创建在该时间的时间对象
+
+test2：Math对象
+    不像数组和Date对象，Math对象不需要创建
+    Math.round(num)   // 四舍五入
+    Math.ceil(num)       // 向上取整
+    Math.floor(num)    // 向下取整
+    Math.random()      // 生成随机数 左闭右开 0至1之间
+    Math.abs(x)       	 // 绝对值
+    Math.pow(x,y)       // x的y次幂
+
+
+test3：随机数猜值小游戏
+
+test4：函数
+    为什么要学函数
+        是为了更好的复用相同的功能代码
+    函数三要素
+
+        1、函数名称
+        2、函数参数
+        3、函数返回值
+        function 函数名称() {
+            函数体，调用函数的时候会自动执行函数体内的代码
+            return 返回值;
+        }
+
+    函数起名规范
+        1、不能以数字开头
+        2、特殊符号使用 $ 或 _
+        3、不能使用关键字和保留字
+        4、要有语义化
+        5、命名使用驼峰式
+
+    形式参数
+        1、参数的本质是变量，但是函数参数不要写var
+        2、多个参数之间用英文状态下的逗号隔开，不能用其他符号
+        3、参数可以赋一个默认值，但是调用的时候传递了参数，默认值就会被覆盖
+        4、一般情况下，参数调用的时候和定义的时候的个数是一样的
+
+    实际参数
+        调用函数时传入的参数值，赋给形参
+
+    返回值
+        参数调用后的默认返回值是 undefined
+        可以通过 return 关键字把函数的结果返回给调用者
+        return 后面代码都不会执行，所以 return 后面不用写代码，因为执行不到
+
+-->
+
+<!-- js-day05 -->
+
+<!--
+
+test1：简易ATM，添加讲笑话功能
+
+test2：斗地主发牌小案例
+
+test3：arguments
+    函数的三种写法
+        函数表达式（匿名函数）-没有名字的函数
+            由于美元名字，不知道如何去调用，所以可以把它赋值给一个变量，
+            根据变量名来调用这个函数
+            var f = function() {}
+        函数声明
+            function f() {}
+        函数对象
+            var f = new Function();
+
+    对象与对象之间比较的是地址值
+        object、function
+    5大基本类型比较的是内容
+        number、string、boolean、null、undefined
+
+    作用域
+        局部作用域
+            被函数包围起来的叫局部作用域，局部作用域内部创建的变量叫局部变量
+            函数内部优先访问局部变量
+        全局作用域
+            在<script>标签的顶级，或者js外部文件的顶级，不能被函数包裹
+
+    作用域链（就近原则）
+        1、函数内部优先访问局部变量
+        2、如果函数内部没有，就往上一级局部作用域查找
+        3、最终查找到全局作用域，如果全局作用域中都没有，就会报错
+            函数内部声明的变量，只能给函数内部使用
+
+    变量赋值
+        创建一个变量，但是没有给它赋值
+            var 变量名;
+        赋值
+            变量名 = 值;
+        变量可以重复赋值，后赋值的会覆盖前面的值
+
+    预解析
+        在JavaScript运行代码之前，优先进行代码预解析，与解析完成后，代码再从上往下执行
+        1、var 变量声明，创建变量的过程提升到作用域最前面
+        2、function 函数声明，函数创建的过程提升到作用域的最前面
+
+    声明变量的三种方式
+        var 变量名
+            相对于它的作用域是一个全局变量
+        let 变量名
+            局部变量
+            不参与预解析
+            只能在let 后使用这个变量，如果在let 之前使用会报错 Cannot access '变量' before initialization
+        const 变量名
+            常量（不可改变的量），不能重复赋值
+            可以避免一个变量重复赋值
+            不参与预解析
+            只能在const后使用这个变量，如果在const后使用会报错 Cannot access '变量' before initialization
+
+-->
+
+<!-- js-day06 -->
+
+<!--
+
+test1：数组方法
+
+    var arr1 = [11, 22, 33, 44, 55];
+    var arr2 = [66, 77, 88, 99];
+
+    concat
+        连接多个数组
+        连接后返回一个新数组，不会改变原数组
+        [].concat(数组1, 数组2 ...)
+        数组1.concat(数组2)
+            var concatArr = [].concat(arr1, arr2);
+            var concatArr2 = arr1.concat(arr2);
+
+    join([分隔符])
+        连接数组的元素
+        返回一个字符串，不会改变原数组
+        如果不写分隔符，默认使用逗号
+        用法
+            数组.join()
+        特殊用法：
+                如果想要字符串紧密相连，直接传入一个空串"" 即可
+        var joinStr = arr1.join("-");
+
+    push(元素1, 元素2 ...)
+        往数组末尾依次添加元素
+        返回数组的新长度，会改变原数组
+        var push = arr1.push(100, 200, 300);
+
+    pop()
+        删除数组末尾的元素，不用传参数
+        返回被删除的元素，会改变原数组
+        var pop = arr1.pop();
+
+    shift()
+        删除数组开头的元素，不需要传参数
+        返回被删除元素，会改变原数组
+        var shift = arr1.shift();
+
+    unshift(数据1, 数据2 ...)
+        往数组开头添加元素
+        返回数组的新长度，会改变原数组
+        var unshift = arr1.unshift(100);
+
+    reverse()
+        反转数组
+        返回反转之后的数组转成的字符串，会改变原数组
+        var reverse = arr1.reverse();
+
+    splice(开始索引, 删除的个数, 添加的元素...)
+        向数组中添加或删除项目
+        返回删除的项目，如果是添加，则返回值为空串，会改变原数组
+            参数1(必填)：要删除元素的索引值，第一位是0，最后一位是-1（或者长度）
+            参数2(必填)：删除的个数，个数为0 代表不删除
+            参数3：添加的元素，参数3 往后都代表添加的元素
+        用法
+            后添加：数组.splice(数组的长度, 0, 添加的元素)
+                var splice = arr1.splice(arr1.length, 0, 9999);
+            后删除：数组.splice(-1, 删除的个数);
+                var splice = arr1.splice(-1, 1);
+            前添加：数组.splice(0, 0, 添加的元素);
+                var splice = arr1.splice(0, 0, 9999);
+            前删除：数组.splice(0, 删除的个数);
+                var splice = arr1.splice(0, 1);
+        特殊用法：
+            清空数组：参数写上0 即可：数组.splice(0)
+                var splice = arr1.splice(0); // 返回数组中的元素
+
+    slice(start, end)
+        截取数据
+        返回截取后的数据，不改变原数组
+            参数1：选取的开始索引值
+            参数2：选取的结束索引值（不包括该元素）
+            var slice = arr1.slice(1, 2);
+
+    sort([排序的函数])
+        对指定数组进行排序
+        会改变原来的数组
+        如果要让它使用数值排序，就要写一个排序的函数
+            函数返回值大于1，右边的数往左，即从大到小排序 return b - a;
+            函数返回值小于1，右边的数往右，即从小到大排序 return a - b;
+        var sort = arr1.sort(function (a, b) {
+            // return a - b; // 从小到大
+            return b - a; // 从大到小
+        });
+
+    includes(元素)
+        查看数组是否包含该元素
+        返回true (包含)或 false (不包含)，不改变原数组
+        var includes = arr1.includes(11);
+
+    forEach(回调函数)
+        遍历数组
+        arr1.forEach(
+            function(value, index) {
+                // value 就是数组里面的每个元素
+                // index 就是每个索引
+                console.log(index, value);
+            }
+        )
+
+    filter(函数)
+        从数组中过滤
+        var filter = arr1.filter(function (value) {
+            return value < 30;
+        });
+
+    indexOf(数据)
+        查找结果只有两种情况：
+            1、查找成功，返回当前查找数据的索引值
+            2、找不到则返回 -1
+        特殊用法
+            数组名称.indexOf(数据, 从哪个索引开始);
+                默认是从0 开始找，找到最近的指定数据，并返回索引值
+                传入索引值，就是从传入的索引值开始往后找，找到最近的指定数据，并返回索引值
+
+test2：字符串方法
+    indexOf()
+        字符串索引值查找
+        返回索引值，不改变原字符串
+            如果存在，返回索引，如果不存在，返回-1
+            var indexOf = str.indexOf("2");
+
+    replace(旧值, 新值)
+        将字符串中的某些字符替换成新的字符
+        返回新字符串，不改变原字符串
+            第一个参数：需要替换的字符串，一般写正则表达式
+            第二个参数：新字符串用于替换原字符串
+        var replace = str.replace("1", "99");
+
+    slice(开始索引值, 结束索引值)
+        字符串提取
+        返回提取的字符串，不改变原字符串
+            字符串.slice(开始索引值, 结束索引值)
+            字符串.substring(开始索引值, 结束索引值)
+            字符串.substr(开始索引值, 提取个数)
+        var slice = str.slice(0, 2);
+
+    toUpperCase()
+        字母转大写
+        返回转成大写的字符串，不改变原字符串
+        var toCase = str.toUpperCase();
+
+    toLowerCase
+        字母转小写
+        返回转成小写的字符串，不改变原字符串
+        var toCase = str.toLowerCase();
+
+-->
+
+
+<!-- webAPI day01 -->
+
+<!--
+
+test1：斐波拉契数列
+    1, 1, 2, 3, 5, 8, 13, 21
+
+test2：console.log() 与console.dir()
+    console.log()     可以输出多个值         输出DOM树         可以区分数据类型
+    console.dir()      只能输出第一个值     输出属性和方法     不可以区分数据类型
+
+test3：更改body 背景颜色
+    document.body.style.backgroundColor = randomRGBColor(); // rgb(255, 0, 0);
+
+test4：querySelector 与querySelectorAll
+    querySelector
+        只能选择第一个，如果没有找到，则返回空 null
+    querySelectorAll
+        返回NodeList
+        可以选择多个，如果没有找到，则返回空数组[]
+
+test5：查找元素
+    getElementById 少用
+        id 是唯一的
+        如果找不到返回null
+        传入的参数必须是字符串，不要加空格
+
+    getElementsByTagName 不常用
+        传入的参数是标签名
+        返回一个伪数组 HTMLCollection
+        如果找不到，返回一个空的伪数组
+
+    getElementsByClassName 不用
+        传入的参数是类名
+        返回一个伪数组 HTMLCollection
+        如果找不到，返回一个空的伪数组
+
+test6：小米轮播图点击切换效果
+    事件的三要素：
+        事件源：触发事件的元素
+        事件类型：如onclick事件、滚动事件
+        事件处理函数：触发事件后进行的操作
+
+test7：innerText 与innerHTML
+    innerText 仅支持文本，不支持标签
+    innerHTML 支持文本，也支持标签
+
+
+-->
+
+</body>
+</html>
