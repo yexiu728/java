@@ -1,7 +1,6 @@
 package day16.part3;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.util.Scanner;
 
 public class Test4 {
