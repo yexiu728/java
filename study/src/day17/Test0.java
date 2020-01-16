@@ -34,7 +34,7 @@ Test1：字节流（使用字节byte）
             public int read(byte[] b)
                 从输入流中读取一些字节数，并将它们存储到字节数组 b中 。
 
-Test2：字符流（使用字符char）
+Test2：字符流（使用字符char，要flush）
     字符输入流【Reader】
         FileReader 类是读取字符文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区。
 
