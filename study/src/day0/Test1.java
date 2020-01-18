@@ -859,6 +859,7 @@ Test2：
     基本类型与字符串之间的转换
         Integer 转字符串：String.valueOf(123);
         字符串转 Integer：public static int parseInt(String s)
+            除了Character类之外，其他所有包装类都具有parseXxx静态方法可以将字符串参数转换为对应的基本类型
 
 */
 
@@ -1356,6 +1357,182 @@ Test4：
     计算文件夹与文件大小
     计算同类型文件个数
 
+*/
+    }
+
+    // 字节流、字符流、属性集
+    public void day17() {
+         /*
+
+Test1：字节流（使用字节byte）
+        字节输出流【OutputStream】
+            FileOutputStream 类是文件输出流，用于将数据写出到文件。
+
+            public void closeSocket()
+                关闭此输出流并释放与此流相关联的任何系统资源。
+                当完成流的操作时，必须调用此方法，释放系统资源。
+            public void flush()
+                刷新此输出流并强制任何缓冲的输出字节被写出。
+            public void write(byte[] b)
+                将 b.length字节从指定的字节数组写入此输出流。
+                系统中的换行：
+                    Windows系统里，每行结尾是 回车+换行 ，即 \r\n；
+                    Unix系统里，每行结尾只有 换行 ，即 \n ；
+                    Mac系统里，每行结尾是 回车 ，即 \r 。
+                    从 Mac OS X开始与Linux统一。
+            public void write(byte[] b, int off, int len)
+                从指定的字节数组写入 len字节，从偏移量 off开始输 出到此输出流。
+            public abstract void write(int b)
+                将指定的字节输出流。
+
+        字节输入流【InputStream】
+            FileInputStream 类是文件输入流，从文件中读取字节。
+
+            public void closeSocket()
+                关闭此输入流并释放与此流相关联的任何系统资源。
+            public abstract int read()
+                从输入流读取数据的下一个字节。
+            public int read(byte[] b)
+                从输入流中读取一些字节数，并将它们存储到字节数组 b中 。
+
+Test2：字符流（使用字符char，要flush）
+    字符输入流【Reader】
+        FileReader 类是读取字符文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区。
+
+        public void closeSocket()
+            关闭此流并释放与此流相关联的任何系统资源。
+        public int read()
+            从输入流读取一个字符。
+        public int read(char[] cbuf)
+            从输入流中读取一些字符，并将它们存储到字符数组 cbuf中 。
+
+     字符输出流【Writer】
+        FileWriter 类是写出字符到文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区。
+
+        void write(int c)
+            写入单个字符。
+        void write(char[] cbuf)
+            写入字符数组。
+        abstract void write(char[] cbuf, int off, int len)
+            写入字符数组的某一部分,off数组的开始索引,len 写的字符个数。
+        void write(String str)
+            写入字符串。
+        void write(String str, int off, int len)
+            写入字符串的某一部分,off字符串的开始索引,len写的字符个 数。
+        void flush()
+            刷新该流的缓冲。
+        void closeSocket()
+            关闭此流，但要先刷新它。
+
+Test3：属性集
+    Properties
+        继承于 Hashtable ，来表示一个持久的属性集。它使用键值结构存储数据，每个键及其对应值都是一个字符串。
+    构造方法
+        public Properties()
+            创建一个空的属性列表。
+    基本的存储方法
+        public Object setProperty(String key, String value)
+            保存一对属性。
+        public String getProperty(String key)
+            使用此属性列表中指定的键搜索属性值。
+        public Set<String> stringPropertyNames()
+            所有键的名称的集合。
+    与流相关的方法
+        public void load(InputStream inStream)
+            从字节输入流中读取键值对。
+            文本中的数据，必须是键值对形式，可以使用空格、等号、冒号等符号分隔。
+
+*/
+    }
+
+    // 缓冲流、转换流、序列化流、打印流
+    public void day18() {
+        /*
+
+Test1：缓冲流
+    字节缓冲流
+         BufferedInputStream
+            public BufferedInputStream(InputStream in)
+                创建一个 新的缓冲输入流。
+         BufferedOutputStream
+            public BufferedOutputStream(OutputStream out)
+                创建一个新的缓冲输出流。
+
+    字符缓冲流
+        BufferedReader
+            public BufferedReader(Reader in)
+                创建一个新的缓冲输入流。
+            public String readLine()
+                读一行文字。
+        BufferedWriter
+            public BufferedWriter(Writer out)
+                创建一个新的缓冲输出流。
+            public void newLine()
+                写一行行分隔符,由系统属性定义符号。
+
+Test2：转换流
+    InputStreamReader
+        InputStreamReader(InputStream in)
+            创建一个使用默认字符集的字符流。
+        InputStreamReader(InputStream in, String charsetName)
+            创建一个指定字符集的字符流。
+    OutputStreamWriter
+        OutputStreamWriter(OutputStream in)
+            创建一个使用默认字符集的字符流。
+        OutputStreamWriter(OutputStream in, String charsetName)
+            创建一个指定字符集的字符流。
+
+Test3：序列化流(Serializable)
+    ObjectOutputStream
+        public ObjectOutputStream(OutputStream out)
+            创建一个指定OutputStream的ObjectOutputStream。
+        public final void writeObject (Object obj)
+            将指定的对象写出。
+    ObjectInputStream
+        public ObjectInputStream(InputStream in)
+            创建一个指定InputStream的ObjectInputStream。
+        public final Object readObject()
+            读取一个对象。
+
+Test4：打印流
+    PrintStream
+        public PrintStream(String fileName)
+            使用指定的文件名创建一个新的打印流。
+            System.setOut(new PrintStream("demo.txt"));
+            System.out.println("test"); // 将会打印到demo.txt 中
+
+IO流总结：
+    字节输入流(FileInputStream)、字节输出流(FileOutputStream)      参数：File 或 String
+    字符输入流(FileReader)、字符输出流(FileWriter)                           参数：File 或 String
+
+    字节缓冲输入流(BufferedInputStream)、字节缓冲输出流(BufferedOutputStream)      参数：字节流
+    字符缓冲输入流(BufferedReader)、字符缓冲输出流(BufferedWriter)                           参数：字符流
+
+    转换输入流(InputStreamReader)、转换输出流(OutputStreamWriter)                          参数：字节流
+
+    序列化输入流(ObjectInputStream)、序列化输出流(ObjectOutputStream)                    参数：字节流
+
+    打印流(PrintStream)    参数：String
+
+
+    读取方法：
+        public abstract int read()
+        public int read(byte[] b)           // 字节流
+        public int read(char[] cbuf)      // 字符流
+    写出方法：
+        public abstract void write(int b)
+        public void write(byte[] b, int off, int len)           // 字节流
+        abstract void write(char[] cbuf, int off, int len)   // 字符流
+        void write(String str, int off, int len)                   // 字符流
+
+    写出时，先flush 再close
+    转换流参数为字节流，方法使用字符流方法
+    字符缓冲流特殊方法
+        BufferedReader：public String readLine()
+        BufferedWriter：public void newLine()
+    序列化流方法
+        ObjectInputStream：public final Object readObject()
+        ObjectOutputStream：public final void writeObject (Object obj)
 */
     }
 

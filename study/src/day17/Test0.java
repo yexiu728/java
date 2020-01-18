@@ -7,7 +7,7 @@ Test1：字节流（使用字节byte）
         字节输出流【OutputStream】
             FileOutputStream 类是文件输出流，用于将数据写出到文件。
 
-            public void close()
+            public void closeSocket()
                 关闭此输出流并释放与此流相关联的任何系统资源。
                 当完成流的操作时，必须调用此方法，释放系统资源。
             public void flush()
@@ -27,7 +27,7 @@ Test1：字节流（使用字节byte）
         字节输入流【InputStream】
             FileInputStream 类是文件输入流，从文件中读取字节。
 
-            public void close()
+            public void closeSocket()
                 关闭此输入流并释放与此流相关联的任何系统资源。
             public abstract int read()
                 从输入流读取数据的下一个字节。
@@ -38,7 +38,7 @@ Test2：字符流（使用字符char，要flush）
     字符输入流【Reader】
         FileReader 类是读取字符文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区。
 
-        public void close()
+        public void closeSocket()
             关闭此流并释放与此流相关联的任何系统资源。
         public int read()
             从输入流读取一个字符。
@@ -60,7 +60,7 @@ Test2：字符流（使用字符char，要flush）
             写入字符串的某一部分,off字符串的开始索引,len写的字符个 数。
         void flush()
             刷新该流的缓冲。
-        void close()
+        void closeSocket()
             关闭此流，但要先刷新它。
 
 Test3：属性集
@@ -82,4 +82,5 @@ Test3：属性集
             文本中的数据，必须是键值对形式，可以使用空格、等号、冒号等符号分隔。
 
 */
+
 }

@@ -55,7 +55,6 @@ Test4：打印流
             System.setOut(new PrintStream("demo.txt"));
             System.out.println("test");
 
-
 IO流总结：
     字节输入流(FileInputStream)、字节输出流(FileOutputStream)      参数：File 或 String
     字符输入流(FileReader)、字符输出流(FileWriter)                           参数：File 或 String
@@ -90,4 +89,6 @@ IO流总结：
         ObjectOutputStream：public final void writeObject (Object obj)
 
 */
+
 }
+
