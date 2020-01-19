@@ -62,31 +62,45 @@ Test3：
                 暴力反射，设置为可以直接调用私有修饰的成员方法
 
 Test4：
-    获取Class对象的Field信息（成员变量）
-        Field getDeclaredField(String name)
-            根据属性名获得属性对象，包括private修饰的
-        Field getField(String name)
-            根据属性名获得属性对象，只能获取public修饰的
-        Field[] getFields()
-            获取所有的public修饰的属性对象，返回数组。
-        Field[] getDeclaredFields()
-            获取所有的属性对象，包括private修饰的，返回数组。
-    Field类中常用方法
-        void set(Object obj, Object value)
-        void setInt(Object obj, int i)
-        void setLong(Object obj, long l)
-        void setBoolean(Object obj, boolean z)
-        void setDouble(Object obj, double d)
-        Object get(Object obj)
-        int getInt(Object obj)
-        long getLong(Object obj)
-        boolean getBoolean(Object ob)
-        double getDouble(Object obj)
-        void setAccessible(true)
-            暴力反射，设置为可以直接访问私有类型的属性。
-        Class getType(); 获取属性的类型，返回Class对象。
+        获取Class对象的Field信息（成员变量）
+            Field getDeclaredField(String name)
+                根据属性名获得属性对象，包括private修饰的
+            Field getField(String name)
+                根据属性名获得属性对象，只能获取public修饰的
+            Field[] getFields()
+                获取所有的public修饰的属性对象，返回数组。
+            Field[] getDeclaredFields()
+                获取所有的属性对象，包括private修饰的，返回数组。
+        Field类中常用方法
+            void set(Object obj, Object value)
+            void setInt(Object obj, int i)
+            void setLong(Object obj, long l)
+            void setBoolean(Object obj, boolean z)
+            void setDouble(Object obj, double d)
+            Object get(Object obj)
+            int getInt(Object obj)
+            long getLong(Object obj)
+            boolean getBoolean(Object ob)
+            double getDouble(Object obj)
+            void setAccessible(true)
+                暴力反射，设置为可以直接访问私有类型的属性。
+            Class getType(); 获取属性的类型，返回Class对象。
 
-Test5：
+Test5(位置前置)：
+        注解解析（Anontation）
+            Anontation：所有注解类型的公共接口，类似所有类的父类是Object。
+            AnnotatedElement：定义了与注解解析相关的方法，常用方法以下四个
+                boolean isAnnotationPresent(Class annotationClass);
+                    判断当前对象是否有指定的注解，有则返回 true，否则返回false。
+                T getAnnotation(Class<T> annotationClass);
+                    获得当前对象上指定的注解对象。
+                Annotation[] getAnnotations();
+                    获得当前对象及其从父类上继承的所有的注解对象。
+                Annotation[] getDeclaredAnnotations();
+                    获得当前对象上所有的注解对象，不包括父类的。
+
+
+Test6：
     注解
         注解相当一种标记，是类的组成部分，可以给类携带一些额外的信息。
         标记(注解)可以加在包，类，字段，方法，方法参数以及局部变量上。
@@ -123,9 +137,6 @@ Test5：
             SOURCE：注解只存在于Java源代码中，编译生成的字节码文件中就不存在了。
             CLASS：注解存在于Java源代码、编译以后的字节码文件中，运行的时候内存中没有，默认值。
             RUNTIME：注解存在于Java源代码中、编译以后的字节码文件中、运行时内存中，程序可以通过反射获取该注解。
-
-
-
 
 */
 }
