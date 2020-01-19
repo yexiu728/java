@@ -91,14 +91,19 @@ Test5(位置前置)：
             Anontation：所有注解类型的公共接口，类似所有类的父类是Object。
             AnnotatedElement：定义了与注解解析相关的方法，常用方法以下四个
                 boolean isAnnotationPresent(Class annotationClass);
-                    判断当前对象是否有指定的注解，有则返回 true，否则返回false。
+                    判断当前对象是否有指定的注解(且生命周期为Runtime)，有则返回 true，否则返回false。
                 T getAnnotation(Class<T> annotationClass);
                     获得当前对象上指定的注解对象。
                 Annotation[] getAnnotations();
                     获得当前对象及其从父类上继承的所有的注解对象。
                 Annotation[] getDeclaredAnnotations();
                     获得当前对象上所有的注解对象，不包括父类的。
-
+    总结：
+        类是Class，方法是Method、字段是Filed
+        有s 代表符合条件的所有（数量层面），没有s 代表一个，而且有对应类型的参数限定
+        有Declared 代表所有（权限层面），没有Declared 代表不能获取私有的
+        有s 但没有Declared 则可以获取父类的，有s 也有Declared 则只能获取当前类
+        注解用对应的类Class或者方法Method或者字段Field点来调用
 
 Test6：
     注解
@@ -125,7 +130,7 @@ Test6：
             则在使用注解给属性赋值时， value属性名不能省略。
 
     元注解
-        @Target：ElementType
+        @Target：ElementType 目标
             TYPE： 用在类,接口上
             FIELD：用在成员变量上
             METHOD： 用在方法上
@@ -133,7 +138,7 @@ Test6：
             CONSTRUCTOR：用在构造方法上
             LOCAL_VARIABLE：用在局部变量上
             ANNOTATION_TYPE：用在注解上
-        @Retention：RetentionPolicy
+        @Retention：RetentionPolicy 生命周期
             SOURCE：注解只存在于Java源代码中，编译生成的字节码文件中就不存在了。
             CLASS：注解存在于Java源代码、编译以后的字节码文件中，运行的时候内存中没有，默认值。
             RUNTIME：注解存在于Java源代码中、编译以后的字节码文件中、运行时内存中，程序可以通过反射获取该注解。
