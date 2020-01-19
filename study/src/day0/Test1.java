@@ -17,7 +17,7 @@ JDK > JRE > JVM
 异常：
     运行时异常：
         空指针 NullPointerException    变量为null，但调用了该类型的方法时会遇到
-        数组越界 ArrayIndexOutOfException    数组中会遇到
+        数组越界 ArrayIndexOutOfBoundsException    数组中会遇到
         类型转换异常 ClassCaseException    强制类型转换时会遇到
         数字转换异常 NumberFormatException    字符串转换成基本类型时会遇到
         无元素异常 NoSuchElementException    迭代器指针出界后会遇到
@@ -41,7 +41,7 @@ JDK > JRE > JVM
     -128~127    -32768~32767    -2147483648~2147483647
 
 char 类型（ASCII 编码表）
-    0：48-59
+    0：48-57
     A：65-90
     a：97-122
 
@@ -52,16 +52,16 @@ char 类型（ASCII 编码表）
     System.out.println(-7 % -3); // -1
     取余结果符号与左边符号相同
 
-标识符：是指在程序中，我们自己定义的名字。比如类的名字、方法的名字和变量的 名字等等，都是标识 符。
+标识符：是指在程序中，我们自己定义的名字。比如类的名字、方法的名字和变量的名字等等，都是标识 符。
     命名规则：硬性要求
-        标识符可以包含 英文字母26个(区分大小写) 、 0-9数字 、 $（美元符号） 和 _（下划线） 。
+        标识符可以包含 26个英文字母(区分大小写) 、 0-9数字 、 $（美元符号） 和 _（下划线） 。
         标识符不能以数字开头。
         标识符不能是关键字。
         区分大小写。
 
 命名规范： 软性建议
     类名规范：每个单词首字母大写（大驼峰式）。
-    方法名和变量名规范：第一个单词全小写，后面每个单词首字母大写（小驼峰 式）。
+    方法名和变量名规范：第一个单词全小写，后面每个单词首字母大写（小驼峰式）。
     包名规范：全部小写。
 
 自动类型转换
@@ -80,10 +80,10 @@ char 类型（ASCII 编码表）
     }
 
     定义格式解释：
-        修饰符： 目前固定写法 public static 。
+        修饰符：目前固定写法 public static 。
         返回值类型： 目前固定写法 void ，其他返回值类型在后面的课程讲解。
         方法名：为我们定义的方法起名，满足标识符的规范，用来调用方法。
-        参数列表： 目前无参数， 带有参数的方法在后面的课程讲解。
+        参数列表： 目前无参数，带有参数的方法在后面的课程讲解。
 
 获取位数
     int num = 1234;
@@ -1533,6 +1533,55 @@ IO流总结：
     序列化流方法
         ObjectInputStream：public final Object readObject()
         ObjectOutputStream：public final void writeObject (Object obj)
+*/
+    }
+
+    // TCP通信
+    public void day19() {
+        /*
+
+Test1：
+    C/S结构
+        全称为Client/Server结构，是指客户端和服务器结构。常见程序有ＱＱ、迅雷等软件。
+    B/S结构
+        全称为Browser/Server结构，是指浏览器和服务器结构。常见浏览器有谷歌、火狐等。
+
+    网络通信协议：
+        TCP/IP协议
+            传输控制协议/因特网互联协议( Transmission Control Protocol/Internet Protocol)，
+            是 Internet最基本、最广泛的协议。
+        UDP：用户数据报协议(User Datagram Protocol)。UDP是无连接通信协议
+        TCP：传输控制协议 (Transmission Control Protocol)。TCP协议是面向连接的通信协议
+
+    网络编程三要素：
+        协议：计算机网络通信必须遵守的规则
+        IP地址：指互联网协议地址（Internet Protocol Address），俗称IP
+        端口号：用两个字节表示的整数，它的取值范围是0~65535
+
+    TCP通信程序
+        1. 客户端： java.net.Socket 类表示。
+            创建 Socket 对象，向服务端发出连接请求，服务端响应请求，两者建 立连接开始通信。
+        2. 服务端： java.net.ServerSocket 类表示。
+            创建 ServerSocket 对象，相当于开启一个服务，并等待客户端 的连接。
+
+        Socket 类：
+            该类实现客户端套接字，套接字指的是两台设备之间通讯的端点。
+            public Socket(String host, int port)
+                创建套接字对象并将其连接到指定主机上的指定端口号。如果指 定的host是null ，则相当于指定地址为回送地址。
+            public InputStream getInputStream()
+                返回此套接字的输入流。
+            public OutputStream getOutputStream()
+                返回此套接字的输出流。
+            public void closeSocket()
+                关闭此套接字。
+            public void shutdownOutput()
+                禁用此套接字的输出流。
+        ServerSocket 类：这个类实现了服务器套接字，该对象等待通过网络的请求。
+            public ServerSocket(int port)
+                使用该构造方法在创建ServerSocket对象时，就可以将其绑定到一个指 定的端口号上，参数port就是端口号。
+            public Socket accept()
+                侦听并接受连接，返回一个新的Socket对象，用于和客户端实现通信。该方法 会一直阻塞直到建立连接。
+
 */
     }
 
